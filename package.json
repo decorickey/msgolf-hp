@@ -1,0 +1,27 @@
+{
+  "name": "nuxt-app",
+  "private": true,
+  "scripts": {
+    "build": "nuxt build",
+    "dev": "nuxt dev",
+    "generate": "nuxt generate",
+    "preview": "nuxt preview",
+    "postinstall": "nuxt prepare",
+    "lint": "eslint ."
+  },
+  "devDependencies": {
+    "@nuxt/eslint-config": "^0.1.1",
+    "@types/node": "^18",
+    "eslint": "^8.39.0",
+    "nuxt": "^3.4.3",
+    "nuxt-quasar-ui": "^1.7.3",
+    "sass": "^1.32.12"
+  },
+  "volta": {
+    "node": "18.16.0"
+  },
+  "dependencies": {
+    "@quasar/extras": "^1.16.3",
+    "quasar": "^2.11.10"
+  }
+}
