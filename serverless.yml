@@ -1,0 +1,17 @@
+service: msgolf-hp
+frameworkVersion: '3'
+provider:
+  name: aws
+  stage: default
+  region: ap-northeast-1
+
+package:
+  patterns:
+    - '!**'
+    - '.output/server/**'
+
+functions:
+  SSRFunction:
+    runtime: nodejs18.x
+    handler: '.output/server/index.handler'
+    url: true

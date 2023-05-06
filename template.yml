@@ -1,0 +1,78 @@
+
+AWSTemplateFormatVersion: "2010-09-09"
+Description: msgolf-hp template
+
+Parameters:
+  BucketName:
+    Type: String
+    Default: msgolf-hp-static
+  CloudFrontOACName:
+    Type: String
+    Default: msgolf-hp-oac
+  SSRFunctionDomainName:
+    Type: String
+
+
+Resources:
+  S3Bucket:
+    Type: AWS::S3::Bucket
+    Properties: 
+      BucketName: !Ref BucketName
+  
+  S3BucketPolicy:
+    Type: AWS::S3::BucketPolicy
+    Properties: 
+      Bucket: !Ref S3Bucket
+      PolicyDocument: 
+        Version: "2012-10-17"
+        Statement: 
+          - Sid: AllowCloudFrontServicePrincipal
+            Effect: Allow
+            Principal: 
+              Service: 
+                - cloudfront.amazonaws.com
+            Action: 
+              - s3:GetObject
+            Resource: 
+              - !Sub "${S3Bucket.Arn}/*"
+            Condition: 
+              StringEquals:
+                AWS:SourceArn:
+                  - !Sub "arn:aws:cloudfront::${AWS::AccountId}:distribution/${CloudFrontDistribution}"
+
+  CloudFrontOAC: 
+    Type: AWS::CloudFront::OriginAccessControl
+    Properties: 
+      OriginAccessControlConfig:
+        Description: Access Control
+        Name: !Ref CloudFrontOACName
+        OriginAccessControlOriginType: s3
+        SigningBehavior: always
+        SigningProtocol: sigv4
+
+  CloudFrontDistribution:
+    Type: AWS::CloudFront::Distribution
+    Properties: 
+      DistributionConfig:
+        CacheBehaviors:
+            - PathPattern: "/_nuxt/*"
+              TargetOriginId: s3-bucket
+              ViewerProtocolPolicy: redirect-to-https
+              CachePolicyId: 658327ea-f89d-4fab-a63d-7e88639e58f6
+        DefaultCacheBehavior: 
+          CachePolicyId: 4135ea2d-6df8-44a3-9df3-4b5a84be39ad
+          TargetOriginId: ssr-function
+          ViewerProtocolPolicy: redirect-to-https
+        Enabled: true
+        Origins:
+          - DomainName: !GetAtt S3Bucket.DomainName
+            Id: s3-bucket
+            OriginAccessControlId: !GetAtt CloudFrontOAC.Id
+            S3OriginConfig: 
+              OriginAccessIdentity: ''
+          - DomainName: !Ref SSRFunctionDomainName
+            Id: ssr-function 
+            CustomOriginConfig:
+              OriginProtocolPolicy: https-only
+        HttpVersion: http2
+        PriceClass: PriceClass_200

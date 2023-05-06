@@ -7,5 +7,8 @@ export default defineNuxtConfig({
     plugins: [],
     lang: "ja",
     config: {}
+  },
+  nitro: {
+    preset: "aws-lambda",
   }
 })
