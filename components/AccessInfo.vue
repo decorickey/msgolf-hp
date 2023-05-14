@@ -20,7 +20,7 @@
         <p class="q-ma-none">
           草加駅からバスで約10分
         </p>
-        <p>
+        <p class="q-ma-none">
           駐車場有：お車でのご来店も歓迎です
         </p>
       </div>
