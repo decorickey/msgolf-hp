@@ -3,6 +3,9 @@ AWSTemplateFormatVersion: "2010-09-09"
 Description: msgolf-hp template
 
 Parameters:
+  DomainName:
+    Type: String
+    Default: msgolf-factory.com
   BucketName:
     Type: String
     Default: msgolf-hp-static
@@ -10,6 +13,8 @@ Parameters:
     Type: String
     Default: msgolf-hp-oac
   SSRFunctionDomainName:
+    Type: String
+  AcmId:
     Type: String
 
 
@@ -54,11 +59,13 @@ Resources:
     Type: AWS::CloudFront::Distribution
     Properties: 
       DistributionConfig:
+        Aliases:
+          - !Ref DomainName
         CacheBehaviors:
-            - PathPattern: "/*.*"
-              TargetOriginId: s3-bucket
-              ViewerProtocolPolicy: redirect-to-https
-              CachePolicyId: 658327ea-f89d-4fab-a63d-7e88639e58f6
+          - PathPattern: "/*.*"
+            TargetOriginId: s3-bucket
+            ViewerProtocolPolicy: redirect-to-https
+            CachePolicyId: 658327ea-f89d-4fab-a63d-7e88639e58f6
         DefaultCacheBehavior: 
           CachePolicyId: 4135ea2d-6df8-44a3-9df3-4b5a84be39ad
           TargetOriginId: ssr-function
@@ -76,3 +83,6 @@ Resources:
               OriginProtocolPolicy: https-only
         HttpVersion: http2
         PriceClass: PriceClass_200
+        ViewerCertificate:
+          AcmCertificateArn: !Sub "arn:aws:acm:us-east-1:${AWS::AccountId}:certificate/${AcmId}"
+          SslSupportMethod: sni-only
