@@ -8,12 +8,12 @@ const autoplay = ref(true)
     <q-carousel
       v-model="slide"
       animated
-      navigation
-      infinite
-      :autoplay="autoplay"
       arrows
+      infinite
+      navigation
       transition-prev="slide-right"
       transition-next="slide-left"
+      :autoplay="autoplay"
       @mouseenter="autoplay = false"
       @mouseleave="autoplay = true"
     >
