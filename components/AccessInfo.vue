@@ -7,26 +7,37 @@
     </h2>
 
     <div class="row">
-      <div class="col-12 q-py-md">
-        <p class="q-ma-none">
-          MSゴルフファクトリー
-        </p>
-        <p class="q-ma-none">
-          〒340-0044
-        </p>
-        <p>
-          埼玉県草加市花栗2-11-24
-        </p>
-        <p class="q-ma-none">
-          草加駅からバスで約10分
-        </p>
-        <p class="q-ma-none">
-          駐車場有：お車でのご来店も歓迎です
-        </p>
+      <q-space />
+
+      <div class="col-12 col-md-4 q-py-md">
+        <div
+          class="column justify-center"
+          style="height: 100%;"
+        >
+          <p class="q-ma-none">
+            MSゴルフファクトリー
+          </p>
+          <p class="q-ma-none">
+            〒340-0044
+          </p>
+          <p>
+            埼玉県草加市花栗2-11-24
+          </p>
+          <p class="q-ma-none">
+            草加駅からバスで約10分
+          </p>
+          <p class="q-ma-none">
+            駐車場有：お車でのご来店も歓迎です
+          </p>
+        </div>
       </div>
 
-      <div class="col-12 q-py-md">
-        <q-img src="https://picsum.photos/500/300" />
+      <div class="col-12 col-md-6 q-py-md">
+        <q-img
+          src="https://picsum.photos/500/300"
+          style="max-height: 300px;"
+          :ratio="4/3"
+        />
       </div>
     </div>
 

@@ -7,30 +7,38 @@
     </h2>
 
     <div class="row">
-      <div class="col-12 q-py-md">
-        <q-img
-          style="border-radius: 50%;"
-          src="https://picsum.photos/500/300"
-          :ratio="1"
-        />
+      <q-space />
+      <div class="col-12 col-md-6 q-py-md">
+        <div class="row justify-center">
+          <q-img
+            style="border-radius: 50%; max-width: 300px; max-height: 300px;"
+            src="https://picsum.photos/500/300"
+            :ratio="1"
+          />
+        </div>
       </div>
 
-      <div class="col-12 q-py-md">
-        <p>
-          式田美樹
-        </p>
-        <p class="q-ma-none">
-          経歴
-        </p>
-        <p>
-          あああああ
-        </p>
-        <p class="q-ma-none">
-          メッセージ
-        </p>
-        <p>
-          あああああ
-        </p>
+      <div class="col-12 col-md-6 q-py-md">
+        <div
+          class="column justify-center"
+          style="height: 100%;"
+        >
+          <p>
+            式田美樹
+          </p>
+          <p class="q-ma-none">
+            経歴
+          </p>
+          <p>
+            あああああ
+          </p>
+          <p class="q-ma-none">
+            メッセージ
+          </p>
+          <p>
+            あああああ
+          </p>
+        </div>
       </div>
     </div>
   </div>
