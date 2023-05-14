@@ -6,10 +6,8 @@
       営業案内
     </h2>
 
-    <div class="row justify-center">
-      <q-space />
-
-      <div class="col-12 col-md-6 q-py-md">
+    <div class="row">
+      <div class="col-12 q-py-md">
         <h3 class="q-ma-none text-body1">
           営業時間
         </h3>
@@ -21,7 +19,7 @@
         </p>
       </div>
 
-      <div class="col-12 col-md-6 q-py-md">
+      <div class="col-12 q-py-md">
         <h3 class="q-ma-none text-body1">
           電話
         </h3>

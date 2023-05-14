@@ -4,10 +4,7 @@ const autoplay = ref(true)
 </script>
 
 <template>
-  <q-responsive
-    :ratio="4/3"
-    style="max-height: 400px;"
-  >
+  <q-responsive :ratio="4/3">
     <q-carousel
       v-model="slide"
       animated

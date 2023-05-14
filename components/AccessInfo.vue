@@ -6,8 +6,8 @@
       アクセス
     </h2>
 
-    <div class="row justify-center">
-      <div class="col-12 col-md-6 q-py-md">
+    <div class="row">
+      <div class="col-12 q-py-md">
         <p class="q-ma-none">
           MSゴルフファクトリー
         </p>
@@ -25,7 +25,7 @@
         </p>
       </div>
 
-      <div class="col-12 col-md-6 q-py-md">
+      <div class="col-12 q-py-md">
         <q-img src="https://picsum.photos/500/300" />
       </div>
     </div>
