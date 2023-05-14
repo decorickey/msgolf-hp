@@ -55,7 +55,7 @@ Resources:
     Properties: 
       DistributionConfig:
         CacheBehaviors:
-            - PathPattern: "/_nuxt/*"
+            - PathPattern: "/*.*"
               TargetOriginId: s3-bucket
               ViewerProtocolPolicy: redirect-to-https
               CachePolicyId: 658327ea-f89d-4fab-a63d-7e88639e58f6

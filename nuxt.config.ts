@@ -6,9 +6,13 @@ export default defineNuxtConfig({
   quasar: {
     plugins: [],
     lang: "ja",
-    config: {}
+    config: {},
+    iconSet: "material-icons",
+    extras: {
+      fontIcons: ["material-icons"]
+    }
   },
   nitro: {
     preset: "aws-lambda",
-  }
+  },
 })
