@@ -1,8 +1,30 @@
-<script lang="ts" setup></script>
+<script lang="ts" setup>
+</script>
 
 <template>
-  <div>
-    Page: foo
+  <div class="text-body1">
+    <TopCarousel />
+
+    <div class="row justify-center">
+      <TopAbout
+        id="about"
+        class="col-12 q-pa-lg"
+      />
+
+      <TheCraftsman
+        class="col-12 q-pa-lg bg-grey-4"
+      />
+
+      <BusinessInfo
+        id="info"
+        class="col-12 q-pa-lg"
+      />
+
+      <AccessInfo
+        id="access"
+        class="col-12 q-pa-lg bg-grey-4"
+      />
+    </div>
   </div>
 </template>
 

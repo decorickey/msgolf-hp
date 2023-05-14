@@ -9,9 +9,11 @@ const rightDrawer = ref(false)
 const { getScrollTarget, setVerticalScrollPosition } = scroll
 
 const scrollItems = [
-  { label: "aaa", id: "aaa"},
-  { label: "bbb", id: "bbb"},
-  { label: "ccc", id: "ccc"},
+  { label: "当店について", id: "about"},
+  { label: "工房メニュー", id: ""},
+  { label: "取り扱いメーカー＆クラブ", id: ""},
+  { label: "営業案内", id: "info"},
+  { label: "アクセス", id: "access"},
 ]
 
 function scrollToElement (id: string) {
@@ -19,7 +21,7 @@ function scrollToElement (id: string) {
   const el = document.getElementById(id) as HTMLElement
   const target = getScrollTarget(el)
   const offset = el.offsetTop - 50
-  const duration = 1000
+  const duration = 400
   setVerticalScrollPosition(target, offset, duration)
 }
 </script>
@@ -29,10 +31,11 @@ function scrollToElement (id: string) {
     <q-header
       class="bg-white text-black"
       elevated
+      reveal
     >
       <q-toolbar>
         <q-toolbar-title class="row space-between">
-          <q-space class="col-1 mobile-only" />
+          <q-space class="mobile-only" />
 
           <div class="col-10 col-md-12">
             <q-img
@@ -96,11 +99,8 @@ function scrollToElement (id: string) {
       </q-list>
     </q-drawer>
 
-    <q-page-container class="row justify-center">
-      <router-view
-        class="col"
-        style="max-width: 1024px;"
-      />
+    <q-page-container>
+      <router-view />
     </q-page-container>
   </q-layout>
 </template>
