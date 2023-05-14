@@ -12,17 +12,17 @@
       />
 
       <TheCraftsman
-        class="col-12 q-pa-lg bg-grey-4"
+        class="col-12 q-pa-xl bg-grey-4"
       />
 
       <BusinessInfo
         id="info"
-        class="col-12 q-pa-lg"
+        class="col-12 q-pa-xl"
       />
 
       <AccessInfo
         id="access"
-        class="col-12 q-pa-lg bg-grey-4"
+        class="col-12 q-pa-xl bg-grey-4"
       />
     </div>
   </div>

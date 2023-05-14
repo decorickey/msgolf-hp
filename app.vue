@@ -20,7 +20,7 @@ function scrollToElement (id: string) {
   rightDrawer.value = false
   const el = document.getElementById(id) as HTMLElement
   const target = getScrollTarget(el)
-  const offset = el.offsetTop - 50
+  const offset = el.offsetTop
   const duration = 400
   setVerticalScrollPosition(target, offset, duration)
 }
