@@ -10,8 +10,8 @@ const { getScrollTarget, setVerticalScrollPosition } = scroll
 
 const scrollItems = [
   { label: "当店について", id: "about"},
-  { label: "工房メニュー", id: ""},
-  { label: "取り扱いメーカー＆クラブ", id: ""},
+  { label: "工房メニュー", id: "menu"},
+  { label: "取り扱いメーカー＆クラブ", id: "makers"},
   { label: "営業案内", id: "info"},
   { label: "アクセス", id: "access"},
 ]
@@ -35,7 +35,7 @@ function scrollToElement (id: string) {
     >
       <q-toolbar>
         <q-toolbar-title class="row space-between">
-          <q-space class="mobile-only" />
+          <q-space />
 
           <div class="col-10 col-md-12">
             <q-img

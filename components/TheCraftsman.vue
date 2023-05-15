@@ -6,9 +6,8 @@
       クラフトマン
     </h2>
 
-    <div class="row">
-      <q-space />
-      <div class="col-12 col-md-6 q-py-md">
+    <div class="row q-col-gutter-xl">
+      <div class="col-12 col-md-6">
         <div class="row justify-center">
           <q-img
             style="border-radius: 50%; max-width: 300px; max-height: 300px;"
@@ -18,7 +17,7 @@
         </div>
       </div>
 
-      <div class="col-12 col-md-6 q-py-md">
+      <div class="col-12 col-md-6">
         <div
           class="column justify-center"
           style="height: 100%;"
