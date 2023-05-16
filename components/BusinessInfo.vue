@@ -6,7 +6,7 @@
       営業案内
     </h2>
 
-    <div class="row q-col-gutter-xl">
+    <div class="row q-col-gutter-md">
       <q-space />
 
       <div class="col-12 col-md-4">
@@ -17,11 +17,11 @@
           9:30 ~ 19:30
         </p>
         <p class="q-ma-none">
-          基本的に年中無休（不定休）
+          基本的に年中無休(不定休)
         </p>
       </div>
 
-      <div class="col-12 col-md-4">
+      <div class="col-12 col-md-6">
         <h3 class="q-ma-none text-body1">
           電話
         </h3>
@@ -32,8 +32,6 @@
           ご予約・ご相談はお気軽に
         </p>
       </div>
-
-      <q-space />
     </div>
   </div>
 </template>

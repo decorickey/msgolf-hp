@@ -6,39 +6,39 @@
 
     <TopAbout
       id="about"
-      class="q-pa-lg q-mx-auto"
+      class="q-px-lg q-py-xl q-mx-auto"
       style="max-width: 1024px;"
     />
 
     <WorkshopMenu 
       id="menu"
-      class="q-pa-lg q-mx-auto"
+      class="q-px-lg q-py-xl q-mx-auto"
       style="max-width: 1024px;"
     />
 
     <MakersAndClubs
       id="makers"
-      class="q-pa-lg q-mx-auto"
+      class="q-px-lg q-py-xl q-mx-auto"
       style="max-width: 1024px;"
     />
 
     <div class="bg-grey-4">
       <TheCraftsman
-        class="q-pa-lg q-mx-auto"
+        class="q-px-lg q-py-xl q-mx-auto"
         style="max-width: 1024px;"
       />
     </div>
 
     <BusinessInfo
       id="info"
-      class="q-pa-lg q-mx-auto"
+      class="q-px-lg q-py-xl q-mx-auto"
       style="max-width: 1024px;"
     />
 
     <div class="bg-grey-4">
       <AccessInfo
         id="access"
-        class="q-pa-lg q-mx-auto"
+        class="q-px-lg q-py-xl q-mx-auto"
         style="max-width: 1024px;"
       />
     </div>

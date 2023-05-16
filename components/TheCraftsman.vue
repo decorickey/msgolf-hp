@@ -6,7 +6,7 @@
       クラフトマン
     </h2>
 
-    <div class="row q-col-gutter-xl">
+    <div class="row q-col-gutter-md">
       <div class="col-12 col-md-6">
         <div class="row justify-center">
           <q-img

@@ -6,7 +6,7 @@
       アクセス
     </h2>
 
-    <div class="row q-col-gutter-xl">
+    <div class="row q-col-gutter-md">
       <q-space />
 
       <div class="col-12 col-md-4">
