@@ -22,16 +22,16 @@
           class="column justify-center"
           style="height: 100%;"
         >
-          <p>
+          <p class="text-h6 text-weight-bold">
             式田美樹
           </p>
-          <p class="q-ma-none">
+          <p class="text-h6">
             経歴
           </p>
           <p>
             あああああ
           </p>
-          <p class="q-ma-none">
+          <p class="text-h6">
             メッセージ
           </p>
           <p>
