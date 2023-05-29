@@ -7,7 +7,8 @@
     </h2>
 
     <div class="row q-col-gutter-md">
-      <div class="col-12 col-md-6">
+      <q-space />
+      <div class="col-12 col-md-3">
         <h3 class="q-ma-none text-body1">
           営業時間
         </h3>

@@ -7,7 +7,8 @@
     </h2>
 
     <div class="row q-col-gutter-md">
-      <div class="col-12 col-md-6">
+      <q-space />
+      <div class="col-12 col-md-4">
         <div
           class="column justify-center"
           style="height: 100%;"
@@ -32,7 +33,7 @@
 
       <div class="col-12 col-md-6">
         <q-img
-          src="https://picsum.photos/500/300"
+          src="access01.jpg"
           style="max-height: 300px;"
           :ratio="4/3"
         />

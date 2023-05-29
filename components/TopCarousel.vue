@@ -1,10 +1,17 @@
 <script lang="ts" setup>
 const slide = ref(1)
 const autoplay = ref(true)
+
+const images = [
+  "access01.jpg",
+  // "access02.jpg",
+  "info01.jpg",
+  "main.jpg",
+]
 </script>
 
 <template>
-  <q-responsive :ratio="4/3">
+  <q-responsive :ratio="16/9">
     <q-carousel
       v-model="slide"
       animated
@@ -18,20 +25,11 @@ const autoplay = ref(true)
       @mouseleave="autoplay = true"
     >
       <q-carousel-slide
-        :name="1"
-        img-src="https://cdn.quasar.dev/img/mountains.jpg"
-      />
-      <q-carousel-slide
-        :name="2"
-        img-src="https://cdn.quasar.dev/img/parallax1.jpg"
-      />
-      <q-carousel-slide
-        :name="3"
-        img-src="https://cdn.quasar.dev/img/parallax2.jpg"
-      />
-      <q-carousel-slide
-        :name="4"
-        img-src="https://cdn.quasar.dev/img/quasar.jpg"
+        v-for="image, i of images"
+        :key="i"
+        :name="i"
+        :img-src="image"
+        style="background-size: contain; background-repeat: no-repeat;"
       />
     </q-carousel>
   </q-responsive>
