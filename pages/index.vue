@@ -28,25 +28,18 @@
     />
 
     <div class="bg-grey-4">
-      <TheCraftsman
+      <BusinessInfo
+        id="info"
         class="q-px-lg q-py-lg q-mx-auto"
         style="max-width: 1024px;"
       />
     </div>
 
-    <BusinessInfo
-      id="info"
+    <AccessInfo
+      id="access"
       class="q-px-lg q-py-lg q-mx-auto"
       style="max-width: 1024px;"
     />
-
-    <div class="bg-grey-4">
-      <AccessInfo
-        id="access"
-        class="q-px-lg q-py-lg q-mx-auto"
-        style="max-width: 1024px;"
-      />
-    </div>
   </div>
 </template>
 
