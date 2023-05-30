@@ -12,28 +12,28 @@ interface Club {
 const brands = reactive<Brand[]>([
   {
     name: "afd",
-    clubs: [
-      {
-        images: ["club-1-1.jpg", "club-1-2.jpg"],
-        label: "あああ",
-        slide: 1,
-      },
-      {
-        images: ["club-2-1.jpg"],
-        label: "いいい",
-        slide: 1,
-      },
-    ],
+    // clubs: [
+    //   {
+    //     images: ["club-1-1.jpg", "club-1-2.jpg"],
+    //     label: "あああ",
+    //     slide: 1,
+    //   },
+    //   {
+    //     images: ["club-2-1.jpg"],
+    //     label: "いいい",
+    //     slide: 1,
+    //   },
+    // ],
   },
   {
     name: "baldo",
-    clubs: [
-      {
-        images: ["club-1-1.jpg"],
-        label: "あああ",
-        slide: 1,
-      },
-    ],
+    // clubs: [
+    //   {
+    //     images: ["club-1-1.jpg"],
+    //     label: "あああ",
+    //     slide: 1,
+    //   },
+    // ],
   },
   {
     name: "buddy",

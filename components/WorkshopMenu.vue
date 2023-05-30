@@ -11,28 +11,25 @@ const autoplay = ref(true)
 
     <div class="row q-col-gutter-xl">
       <div class="col-12 col-md-6">
-        <div class="q-pa-lg bg-grey-4 border-radius">
+        <div
+          class="q-pa-lg bg-grey-4 border-radius"
+          style="height: 100%;"
+        >
           <h3 class="text-h5 text-center">
             オーダーメイドクラブ<br>製造・販売
           </h3>
 
           <p class="q-ma-none">
-            ・あああ
+            ・
           </p>
           <p class="q-ma-none">
-            ・いいい
-          </p>
-          <p class="q-ma-none">
-            ・ううう
-          </p>
-          <p class="q-ma-none">
-            ・えええ
+            ※お気軽にご相談ください
           </p>
         </div>
 
         <q-responsive
+          v-if="false"
           class="q-mt-sm"
-          style="max-height: 250px;"
           :ratio="4/3"
         >
           <q-carousel
@@ -87,10 +84,10 @@ const autoplay = ref(true)
             ・シャフトカット(伸ばし)
           </p>
           <p class="q-ma-none">
-            ・ヘッド塗替え
+            ・ウッドパター塗替え
           </p>
           <p class="q-ma-none">
-            ・ロフト/ライ調整
+            ・アイアン パター ロフト/ライ調整
           </p>
           <p>
             ・キャディバッグ修理 <span class="q-ml-lg">など</span>

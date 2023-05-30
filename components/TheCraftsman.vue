@@ -11,7 +11,7 @@
         <div class="row justify-center">
           <q-img
             style="border-radius: 50%; max-width: 300px; max-height: 300px;"
-            src="https://picsum.photos/500/300"
+            src="profile.jpg"
             :ratio="1"
           />
         </div>
@@ -29,7 +29,7 @@
             メッセージ
           </p>
           <p>
-            あああああああああああああああああああああああああああああああああああああああああああああああああ
+            35年間の経験を活かしてアドバイスもさせていただきますのでお気軽にお越しください！
           </p>
         </div>
       </div>
