@@ -1,10 +1,6 @@
 # Nuxt 3 Minimal Starter
 
-Look at the [Nuxt 3 documentation](https://nuxt.com/docs/getting-started/introduction) to learn more.
-
 ## Setup
-
-Make sure to install the dependencies:
 
 ```bash
 # yarn
@@ -19,8 +15,6 @@ pnpm install
 
 ## Development Server
 
-Start the development server on `http://localhost:3000`
-
 ```bash
 npm run dev
 ```
@@ -31,12 +25,10 @@ Build the application for production:
 
 ```bash
 npm run build
+
+aws cloudformation deploy --template-file template.yml --stack-name msgolf-hp-resources --parameter-overrides hoge.lambda-url.ap-northeast-1.on.aws AcmId=fuga
+
+npx serverless deploy
+
+aws s3 sync .output/public/ s3://msgolf-hp-static/ --delete
 ```
-
-Locally preview production build:
-
-```bash
-npm run preview
-```
-
-Check out the [deployment documentation](https://nuxt.com/docs/getting-started/deployment) for more information.
