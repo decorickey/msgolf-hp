@@ -7,8 +7,7 @@
     </h2>
 
     <div class="row q-col-gutter-md">
-      <q-space />
-      <div class="col-12 col-md-4">
+      <div class="col-12 col-md-6">
         <div
           class="column justify-center"
           style="height: 100%;"
@@ -35,13 +34,13 @@
         <q-img
           src="access01.jpg"
           style="max-height: 300px;"
-          :ratio="4/3"
+          :ratio="16/9"
         />
       </div>
 
       <div class="col-12">
         <q-responsive
-          :ratio="4/3"
+          :ratio="16/9"
           style="max-height: 400px;"
         >
           <iframe

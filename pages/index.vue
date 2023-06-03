@@ -10,7 +10,7 @@
       style="max-width: 1024px;"
     />
 
-    <TwitterTimeline
+    <TopInfo
       class="q-px-lg q-py-lg q-mx-auto"
       style="max-width: 1024px;"
     />

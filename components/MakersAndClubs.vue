@@ -102,7 +102,7 @@ const brands = reactive<Brand[]>([
                     :key="j"
                     class="col-12"
                   >
-                    <q-responsive :ratio="4/3">
+                    <q-responsive :ratio="16/9">
                       <q-carousel
                         v-model="club.slide"
                         animated

@@ -13,24 +13,19 @@ const autoplay = ref(true)
       <div class="col-12 col-md-6">
         <div
           class="q-pa-lg bg-grey-4 border-radius"
-          style="height: 100%;"
         >
           <h3 class="text-h5 text-center">
             オーダーメイドクラブ<br>製造・販売
           </h3>
 
-          <p class="q-ma-none">
-            ・
-          </p>
-          <p class="q-ma-none">
-            ※お気軽にご相談ください
+          <p>
+            長年培ってきたクラブ制作・フィッティングの経験を活かし、悩めるゴルファーにぴったりのクラブをお作りします。
           </p>
         </div>
 
         <q-responsive
-          v-if="false"
-          class="q-mt-sm"
-          :ratio="4/3"
+          class="q-mt-lg"
+          :ratio="16/9"
         >
           <q-carousel
             v-model="slide"
@@ -101,7 +96,7 @@ const autoplay = ref(true)
           </p>
 
           <p>
-            ※フィッティングルームあります
+            ※測定機つき試打場あります
           </p>
         </div>
       </div>
