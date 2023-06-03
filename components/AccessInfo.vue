@@ -2,9 +2,9 @@
 
 <template>
   <div>
-    <h2 class="text-h5 text-center">
+    <ContentTitle>
       アクセス
-    </h2>
+    </ContentTitle>
 
     <div class="row q-col-gutter-md">
       <div class="col-12 col-md-6">

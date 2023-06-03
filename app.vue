@@ -102,5 +102,11 @@ function scrollToElement (id: string) {
     <q-page-container>
       <router-view />
     </q-page-container>
+
+    <div>
+      <p class="text-center">
+        MSゴルフファクトリー
+      </p>
+    </div>
   </q-layout>
 </template>

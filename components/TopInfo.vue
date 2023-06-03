@@ -22,9 +22,9 @@ const informationList: {
 
 <template>
   <div>
-    <h2 class="text-h5 text-center">
+    <ContentTitle>
       おしらせ
-    </h2>
+    </ContentTitle>
 
     <div class="row q-col-gutter-lg">
       <div class="col-12 col-md-6">

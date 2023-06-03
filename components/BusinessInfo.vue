@@ -2,9 +2,9 @@
 
 <template>
   <div>
-    <h2 class="text-h5 text-center">
+    <ContentTitle>
       営業案内
-    </h2>
+    </ContentTitle>
 
     <div class="row q-col-gutter-md">
       <q-space />

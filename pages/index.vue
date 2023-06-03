@@ -2,7 +2,7 @@
 
 <template>
   <div class="text-body1">
-    <TopCarousel style="max-height: 400px;" />
+    <TopCarousel />
 
     <TopAbout
       id="about"

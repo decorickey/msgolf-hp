@@ -11,7 +11,7 @@ const images = [
 </script>
 
 <template>
-  <q-responsive :ratio="16/9">
+  <q-responsive :ratio="16/7">
     <q-carousel
       v-model="slide"
       animated
@@ -29,7 +29,6 @@ const images = [
         :key="i"
         :name="i"
         :img-src="image"
-        style="background-size: contain; background-repeat: no-repeat;"
       />
     </q-carousel>
   </q-responsive>

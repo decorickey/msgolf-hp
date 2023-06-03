@@ -5,9 +5,9 @@ const autoplay = ref(true)
 
 <template>
   <div>
-    <h2 class="text-h5 text-center">
+    <ContentTitle>
       工房メニュー
-    </h2>
+    </ContentTitle>
 
     <div class="row q-col-gutter-xl">
       <div class="col-12 col-md-6">

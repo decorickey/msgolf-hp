@@ -67,9 +67,9 @@ const brands = reactive<Brand[]>([
 
 <template>
   <div>
-    <h2 class="text-h5 text-center">
+    <ContentTitle>
       取り扱いメーカー
-    </h2>
+    </ContentTitle>
 
     <p class="text-center">
       様々なメーカーのゴルフクラブを取り扱っております。
