@@ -42,19 +42,11 @@ const autoplay = ref(true)
           >
             <q-carousel-slide
               :name="1"
-              img-src="https://cdn.quasar.dev/img/mountains.jpg"
+              img-src="order.jpg"
             />
             <q-carousel-slide
               :name="2"
-              img-src="https://cdn.quasar.dev/img/parallax1.jpg"
-            />
-            <q-carousel-slide
-              :name="3"
-              img-src="https://cdn.quasar.dev/img/parallax2.jpg"
-            />
-            <q-carousel-slide
-              :name="4"
-              img-src="https://cdn.quasar.dev/img/quasar.jpg"
+              img-src="hitting.jpg"
             />
           </q-carousel>
         </q-responsive>

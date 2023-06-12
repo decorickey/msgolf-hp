@@ -32,7 +32,7 @@
 
       <div class="col-12 col-md-6">
         <q-img
-          src="access01.jpg"
+          src="exterior.jpg"
           style="max-height: 300px;"
           :ratio="16/9"
         />

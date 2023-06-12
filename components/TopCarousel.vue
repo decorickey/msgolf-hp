@@ -3,10 +3,11 @@ const slide = ref(1)
 const autoplay = ref(true)
 
 const images = [
-  "access01.jpg",
-  // "access02.jpg",
-  "info01.jpg",
-  "main.jpg",
+  "carousel/P1017218-2.jpg",
+  "carousel/P1017120-2.jpg",
+  "carousel/P1017133-2.jpg",
+  "carousel/P1017155-2.jpg",
+  "carousel/P1017201-2.jpg",
 ]
 </script>
 
