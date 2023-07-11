@@ -1,6 +1,7 @@
 <script lang="ts" setup>
 interface Brand {
   name: string;
+  image: string;
   clubs?: Club[];
 }
 interface Club {
@@ -12,6 +13,7 @@ interface Club {
 const brands = reactive<Brand[]>([
   {
     name: "afd",
+    image: "logo.png",
     // clubs: [
     //   {
     //     images: ["club-1-1.jpg", "club-1-2.jpg"],
@@ -27,6 +29,7 @@ const brands = reactive<Brand[]>([
   },
   {
     name: "baldo",
+    image: "logo.png",
     // clubs: [
     //   {
     //     images: ["club-1-1.jpg"],
@@ -37,30 +40,47 @@ const brands = reactive<Brand[]>([
   },
   {
     name: "buddy",
+    image: "logo.png",
+  },
+  {
+    name: "epon",
+    image: "logo.svg",
   },
   {
     name: "forebes",
+    image: "logo.png",
   },
   {
     name: "gorilla",
+    image: "logo.png",
   },
   {
     name: "jbeam",
+    image: "logo.png",
   },
   {
     name: "kyoei",
+    image: "logo.png",
   },
   {
     name: "maxsoul",
+    image: "logo.png",
   },
   {
     name: "miura",
+    image: "logo.png",
   },
   {
     name: "mystery",
+    image: "logo.png",
+  },
+  {
+    name: "razzle",
+    image: "logo.png",
   },
   {
     name: "romaro",
+    image: "logo.png",
   },
 ])
 </script>
@@ -75,7 +95,7 @@ const brands = reactive<Brand[]>([
       様々なメーカーのゴルフクラブを取り扱っております。
     </p>
 
-    <div class="row">
+    <div class="row items-center">
       <div
         v-for="(brand, i) of brands"
         :key="i"
@@ -90,7 +110,7 @@ const brands = reactive<Brand[]>([
             <template #header>
               <q-img
                 class="q-mr-sm"
-                :src="`brands/${brand.name}/logo.png`"
+                :src="`brands/${brand.name}/${brand.image}`"
               />
             </template>
 
