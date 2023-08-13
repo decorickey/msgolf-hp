@@ -1,5 +1,7 @@
 # Nuxt 3 Minimal Starter
 
+[HomePage](https://msgolf-factory.com/)
+
 ## Setup
 
 ```bash
