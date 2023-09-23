@@ -14,29 +14,26 @@ const brands = reactive<Brand[]>([
   {
     name: "afd",
     image: "logo.png",
-    // clubs: [
-    //   {
-    //     images: ["club-1-1.jpg", "club-1-2.jpg"],
-    //     label: "あああ",
-    //     slide: 1,
-    //   },
-    //   {
-    //     images: ["club-2-1.jpg"],
-    //     label: "いいい",
-    //     slide: 1,
-    //   },
-    // ],
+  },
+  {
+    name: "agrind",
+    image: "logo.png",
+    clubs: [
+      {
+        images: ["club-1-1.jpg", "club-1-2.jpg", "club-1-3.jpg"],
+        label: "",
+        slide: 1,
+      },
+      {
+        images: ["club-2-1.jpg", "club-2-2.jpg", "club-2-3.jpg"],
+        label: "",
+        slide: 1,
+      },
+    ],
   },
   {
     name: "baldo",
     image: "logo.png",
-    // clubs: [
-    //   {
-    //     images: ["club-1-1.jpg"],
-    //     label: "あああ",
-    //     slide: 1,
-    //   },
-    // ],
   },
   {
     name: "buddy",
@@ -45,6 +42,18 @@ const brands = reactive<Brand[]>([
   {
     name: "epon",
     image: "logo.svg",
+    clubs: [
+      {
+        images: ["club-1-1.jpeg"],
+        label: "",
+        slide: 1,
+      },
+      {
+        images: ["club-2-1.jpeg", "club-3-1.jpeg", "club-4-1.jpeg"],
+        label: "",
+        slide: 1,
+      },
+    ],
   },
   {
     name: "forebes",
@@ -81,6 +90,18 @@ const brands = reactive<Brand[]>([
   {
     name: "romaro",
     image: "logo.png",
+    clubs: [
+      {
+        images: ["club-1-1.jpeg"],
+        label: "",
+        slide: 1,
+      },
+      {
+        images: ["club-2-1.jpeg"],
+        label: "",
+        slide: 1,
+      },
+    ],
   },
 ])
 </script>
