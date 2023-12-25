@@ -44,12 +44,17 @@ const brands = reactive<Brand[]>([
     image: "logo.svg",
     clubs: [
       {
-        images: ["club-1-1.jpeg"],
+        images: ["club-3-1.JPG", "club-3-2.JPG", "club-3-3.JPG"],
         label: "",
         slide: 1,
       },
       {
-        images: ["club-2-1.jpeg", "club-3-1.jpeg", "club-4-1.jpeg"],
+        images: ["club-2-1.jpeg", "club-2-2.jpeg", "club-2-3.jpeg"],
+        label: "",
+        slide: 1,
+      },
+      {
+        images: ["club-1-1.jpeg"],
         label: "",
         slide: 1,
       },
@@ -116,61 +121,59 @@ const brands = reactive<Brand[]>([
       様々なメーカーのゴルフクラブを取り扱っております。
     </p>
 
-    <div class="row items-center">
-      <div
+    <div class="row items-center items-stretch">
+      <q-list
         v-for="(brand, i) of brands"
         :key="i"
         class="col-12 col-md-4"
+        bordered
       >
-        <q-list bordered>
-          <q-expansion-item
-            class="box-shadow-1"
-            group="makers"
-            header-class="q-pr-none"
-          >
-            <template #header>
+        <q-expansion-item group="makers">
+          <template #header>
+            <q-item-section>
               <q-img
-                class="q-mr-sm"
                 :src="`brands/${brand.name}/${brand.image}`"
+                fit="contain"
+                height="80px"
               />
-            </template>
+            </q-item-section>
+          </template>
 
-            <q-card>
-              <q-card-section>
-                <div class="row">
-                  <div
-                    v-for="(club, j) of brand.clubs"
-                    :key="j"
-                    class="col-12"
-                  >
-                    <q-responsive :ratio="16/9">
-                      <q-carousel
-                        v-model="club.slide"
-                        animated
-                        arrows
-                        autoplay
-                        navigation
-                        infinite
-                      >
-                        <q-carousel-slide
-                          v-for="(image, k) of club.images"
-                          :key="k"
-                          :name="k"
-                          :img-src="`brands/${brand.name}/${image}`"
-                        />
-                      </q-carousel>
-                    </q-responsive>
+          <q-card>
+            <q-card-section>
+              <div class="row">
+                <div
+                  v-for="(club, j) of brand.clubs"
+                  :key="j"
+                  class="col-12"
+                >
+                  <q-responsive :ratio="4/3">
+                    <q-carousel
+                      v-model="club.slide"
+                      animated
+                      arrows
+                      autoplay
+                      navigation
+                      infinite
+                    >
+                      <q-carousel-slide
+                        v-for="(image, k) of club.images"
+                        :key="k"
+                        :name="k"
+                        :img-src="`brands/${brand.name}/${image}`"
+                      />
+                    </q-carousel>
+                  </q-responsive>
 
-                    <p class="text-center q-mt-md">
-                      {{ club.label }}
-                    </p>
-                  </div>
+                  <p class="text-center q-mt-md">
+                    {{ club.label }}
+                  </p>
                 </div>
-              </q-card-section>
-            </q-card>
-          </q-expansion-item>
-        </q-list>
-      </div>
+              </div>
+            </q-card-section>
+          </q-card>
+        </q-expansion-item>
+      </q-list>
     </div>
   </div>
 </template>
