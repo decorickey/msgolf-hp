@@ -1,45 +1,25 @@
 name: build-delpoy-actions
-run-name: ${{ github.actor }} is learning GitHub Actions
+run-name: build-delpoy-actions
 on: 
   workflow_dispatch:
-    inputs:
-      ssrfunctiondomain:
-        required: true
-      acmid:
-        required: true
 jobs:
-  check-bats-version:
+  CloudFormation:
     runs-on: ubuntu-latest
     steps:
-      - name: AWS CloudFormation "Deploy CloudFormation Stack" Action for GitHub Actions
-        uses: aws-actions/aws-cloudformation-github-deploy@v1.2.0
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Configure AWS credentials
+        uses: aws-actions/configure-aws-credentials@master
         with:
-          # The name of the CloudFormation stack
+          aws-region: ap-northeast-1
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+      - name: AWS CloudFormation "Deploy CloudFormation Stack" Action for GitHub Actions
+        uses: aws-actions/aws-cloudformation-github-deploy@master
+        with:
           name: msgolf-hp-resources
-          # The path or URL to the CloudFormation template
           template: template.yml
-          # The comma-delimited list of stack template capabilities to acknowledge. Defaults to 'CAPABILITY_IAM'
-          # capabilities: # optional, default is CAPABILITY_IAM
-          # The parameters to override in the stack inputs. You can pass a comma-delimited list or a file URL. Comma-delimited list has each entry formatted as <ParameterName>=<ParameterValue> or <ParameterName>="<ParameterValue>,<ParameterValue>". A JSON file can be a local file with a "file://" prefix or remote URL. The file should look like: [ { "ParameterKey": "KeyPairName", "ParameterValue": "MyKey" }]
+          no-fail-on-empty-changeset: "1"
           parameter-overrides: >-
-            SSRFunctionDomainName=${{ github.event.inputs.ssrfunctiondomain }},
-            AcmId=${{ github.event.inputs.acmid }}
-          # Indicates whether to execute to the change set or have it reviewed. Default to '0' (will execute the change set)
-          # no-execute-changeset: # optional, default is 0
-          # Indicates whether to delete to a failed change set. Default to '0' (will delete the failed changeset)
-          # no-delete-failed-changeset: # optional, default is 0
-          # If the CloudFormation change set is empty, do not fail. Defaults to '0' (will fail on empty change set)
-          # no-fail-on-empty-changeset: # optional, default is 0
-          # Disable rollback of the stack if stack creation fails. Defaults to '0' (will rollback if stack creation fails). This input is only used for stack creation, not for stack update
-          # disable-rollback: # optional, default is 0
-          # The amount of time that can pass before the stack status becomes CREATE_FAILED. This input is only used for stack creation, not for stack update
-          # timeout-in-minutes: # optional
-          # The comma-delimited list of Amazon SNS topic ARNs to publish stack related events
-          # notification-arns: # optional
-          # The Amazon Resource Name (ARN) of an AWS Identity and Access Management (IAM) role that AWS CloudFormation assumes to create the stack. AWS CloudFormation uses the role's credentials to make calls on your behalf. AWS CloudFormation always uses this role for all future operations on the stack. As long as users have permission to operate on the stack, AWS CloudFormation uses this role even if the users don't have permission to pass it. Ensure that the role grants least privilege. If you don't specify a value, AWS CloudFormation uses the role that was previously associated with the stack
-          # role-arn: # optional
-          # Key-value pairs to associate with this stack. This input should be JSON-formatted, for example [ { "Key": "string", "Value": "string" } ]
-          # tags: # optional
-          # Whether to enable termination protection on the specified stack. Defaults to '0' (terminated protection will be disabled) This input is only used for stack creation, not for stack update
-          # termination-protection: # optional, default is 0
-          
+            SSRFunctionDomainName=${{ secrets.SSRFunctionDomainName }},
+            AcmId=${{ secrets.AcmId }}
