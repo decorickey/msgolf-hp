@@ -1,6 +1,4 @@
-# Nuxt 3 Minimal Starter
-
-[HomePage](https://msgolf-factory.com/)
+# [HomePage](https://msgolf-factory.com/)
 
 ## Setup
 
@@ -27,8 +25,4 @@ Build the application for production:
 
 ```bash
 npm run build
-
-npx serverless deploy
-
-aws s3 sync .output/public/ s3://msgolf-hp-static/ --delete
 ```
