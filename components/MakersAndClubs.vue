@@ -77,6 +77,17 @@ const brands = reactive<Brand[]>([
     image: "logo.png",
   },
   {
+    name: "masda",
+    image: "logo.png",
+    clubs: [
+      {
+        images: ["club-1-1.jpg", "club-1-2.jpg"],
+        label: "",
+        slide: 1,
+      }
+    ]
+  },
+  {
     name: "maxsoul",
     image: "logo.png",
   },
@@ -147,7 +158,7 @@ const brands = reactive<Brand[]>([
                   :key="j"
                   class="col-12"
                 >
-                  <q-responsive :ratio="4/3">
+                  <q-responsive :ratio="1/1">
                     <q-carousel
                       v-model="club.slide"
                       animated
