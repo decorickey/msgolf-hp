@@ -44,6 +44,11 @@ const brands = reactive<Brand[]>([
     image: "logo.svg",
     clubs: [
       {
+        images: ["club-4-1.jpeg"],
+        label: "",
+        slide: 1,
+      },
+      {
         images: ["club-3-1.JPG", "club-3-2.JPG", "club-3-3.JPG"],
         label: "",
         slide: 1,
