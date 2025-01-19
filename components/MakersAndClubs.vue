@@ -97,6 +97,17 @@ const brands = reactive<Brand[]>([
     image: "logo.png",
   },
   {
+    name: "minervagolf",
+    image : "logo.jpg",
+    clubs: [
+      {
+        images: ["club-1-1.jpeg", "club-1-2.jpeg"],
+        label: "",
+        slide: 1,
+      },
+    ]
+  },
+  {
     name: "miura",
     image: "logo.png",
   },
