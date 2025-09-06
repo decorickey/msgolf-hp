@@ -21,6 +21,6 @@
     "nuxt-quasar-ui": "^2.1.13",
     "quasar": "^2.18.2",
     "sass": "^1.92.1",
-    "serverless": "^4.18.2"
+    "serverless": "^3.38.0"
   }
 }
