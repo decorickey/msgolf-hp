@@ -12,6 +12,6 @@ package:
 
 functions:
   SSRFunction:
-    runtime: nodejs18.x
+    runtime: nodejs22.x
     handler: '.output/server/index.handler'
     url: true
