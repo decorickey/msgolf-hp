@@ -12,7 +12,7 @@ package:
 
 functions:
   SSRFunction:
-    runtime: nodejs22.x
+    runtime: nodejs20.x
     handler: '.output/server/index.handler'
     url: true
 
@@ -27,4 +27,3 @@ resources:
             - Arn
         Action: lambda:InvokeFunction
         Principal: '*'
-        FunctionUrlAuthType: NONE
