@@ -15,3 +15,16 @@ functions:
     runtime: nodejs22.x
     handler: '.output/server/index.handler'
     url: true
+
+resources:
+  Resources:
+    SsrFunctionLambdaPermissionFnUrlInvokeFunction:
+      Type: AWS::Lambda::Permission
+      Properties:
+        FunctionName:
+          Fn::GetAtt:
+            - SSRFunctionLambdaFunction
+            - Arn
+        Action: lambda:InvokeFunction
+        Principal: '*'
+        FunctionUrlAuthType: NONE
