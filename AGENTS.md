@@ -1,43 +1,23 @@
-# AGENTS.md
+# Repository Guidelines
 
-## リポジトリ概要
-- Nuxt 4 + TypeScript で構築されたフロントエンドアプリケーション。
-- Quasar UI を利用したシングルページ構成で、MSゴルフファクトリー公式サイトのトップページを表示。
-- デプロイは Serverless Framework (`serverless.yml`) を介して AWS Lambda（関数 URL 有効化）に実施する想定。
+## Project Structure & Module Organization
+Nuxt 4 + Quasar UI を採用しています。`pages/` はルーティング定義、`components/` は再利用可能な UI、`app.vue` と `nuxt.config.ts` がグローバル設定です。静的アセットは `public/`、サーバレス関連は `serverless.yml` と `template.yml`、型設定は `tsconfig.json` にあります。デザインガイドや共有ロジックはファイル先頭コメントで簡潔に説明し、同ディレクトリ内の README を更新してください。
 
-## 技術スタック
-- Nuxt 4 / Vue 3（`app.vue`, `pages/index.vue`, `components/*`）
-- Quasar UI（`nuxt.config.ts` にて `nuxt-quasar-ui` モジュールを導入）
-- TypeScript（一部コンポーネントは最低限のロジックのみ）
-- 静的アセットは `public/` 配下に集中し、Sass の利用は限定的
+## Build, Test, and Development Commands
+- `npm install`：Volta が固定した Node 22.12.0 で依存を導入します。
+- `npm run dev`：ホットリロード付きで `http://localhost:3000` を起動します。
+- `npm run build`：サーバレス配備向けに本番ビルドを生成します。
+- `npm run generate`：静的ホスティング用の `dist/` を作ります。
+- `npm run lint`：`eslint .` で SFC/TS/Serverless 設定を検証します。テストスクリプトは未定義ですが、追加時は `npm run test` → `vitest run` を想定してください。
 
-## アプリケーション構成
-- `app.vue`: Quasar の `q-layout` をベースにヘッダー・ドロワー・ページコンテナを定義。スクロールナビゲーションのロジックを保持。
-- `pages/index.vue`: トップページ本体。各セクションコンポーネントを並べる役割のみ。
-- `components/*`: トップページ表示用のセクション群。
-  - `TopCarousel.vue`: トップ画像のカルーセル。
-  - `TopAbout.vue`: 店舗紹介テキスト。
-  - `TopInfo.vue`: お知らせリストと Twitter タイムライン埋め込み（`useHead` でウィジェット読み込み）。
-  - `WorkshopMenu.vue`: 工房メニュー紹介＋カルーセル。
-  - `MakersAndClubs.vue`: 取り扱いメーカー一覧とクラブ画像カルーセル。ブランドごとに静的データを保持。
-  - `BusinessInfo.vue`, `AccessInfo.vue`: 営業案内・住所・地図などの静的情報。
-  - `ContentTitle.vue`: 各セクション見出し用のラッパー。
-- `public/`: ロゴやクラブ写真、トップ画像などの静的アセット。
+## Coding Style & Naming Conventions
+公式 ESLint 設定（@nuxt/eslint-config）をベースに 2 スペースインデント、セミコロン無し、single quote を推奨します。Vue コンポーネントは PascalCase、Composable は `useXxx`、ローカル変数・関数は camelCase。SFC 内部では `<script setup lang="ts">` を標準化し、CSS は BEM か `component__element--modifier` の派生を使って衝突を避けます。型定義や API レスポンスは `types/` を作成し再利用します。
 
-## インフラ・デプロイ関連
-- `nuxt.config.ts`: `nitro.preset = "aws-lambda"` で Lambda 配備を前提化。Quasar 設定もここで管理。
-- `serverless.yml`: `SSRFunction` を Node.js 22 ランタイムで Lambda へ配置し、`url: true` で関数 URL を有効化。
-- `template.yml`: S3 バケットと CloudFront ディストリビューション、OAC、証明書 ARN を CloudFormation で構築（静的アセット配信用と推測）。
-- `package.json`: `nuxt`, `nuxt-quasar-ui`, `serverless` などの依存関係とビルド／開発スクリプトを定義。
+## Testing Guidelines
+現状は Lint を最低ラインとし、UI ロジックは Vitest + Vue Test Utils、E2E は Playwright を推奨します。コンポーネントテストはテーブル駆動の `describe.each` / `test.each` で入力差分を列挙し、Kent Beck と t_wada の TDD サイクル（レッド→グリーン→リファクタ）を厳守します。`npx vitest run --coverage` を CI とローカルで同じオプションに揃えてください。
 
-## 現状の課題・留意点
-- Lambda 関数 URL のリソースポリシー: Serverless Framework 3.38.0 が `lambda:InvokeFunctionUrl` のみを付与しており、AWS の新要件（`lambda:InvokeFunction` 追加）に未対応。2026/11/1 以降にアクセス拒否となるリスク。
-- コンテンツはほぼ静的でコンポーネント内にハードコードされているため、更新時は手動編集が必要。
-- テスト・型定義ファイル・CI/CD 設定は見当たらず、品質保証の仕組みが未整備。
-- 画像アセットが大量にあり、ビルド成果物サイズや最適化（圧縮・WebP 変換など）の余地がある。
+## Commit & Pull Request Guidelines
+Git 履歴は短い英語インペラティブ（例: `fix`, `update`）で統一されています。コミット単位は「1 目的 1 変更」に分割し、必要なら `Co-authored-by` を追記してください。PR では目的、主要な UI 変更スクリーンショット、テストコマンドの実行結果、関連 Issue をテンプレート的に箇条書きで記載し、レビュー前に ESLint と（存在する場合）テストを必ず通します。
 
-## 推奨アクション
-1. Lambda 関数 URL の権限ポリシーを新モデルへ更新（Serverless Framework の対応版へアップグレード、または `resources` セクション等で明示的に両アクションを付与）。
-2. 静的コンテンツ更新の運用改善（CMS 導入、データ定義の分離など）を検討。
-3. 画像最適化やパフォーマンス改善（レスポンスサイズ削減、遅延読み込み等）を評価。
-4. 今後の改修に備えて lint / test / CI 体制を整備し、自動検証を導入。
+## Security & Configuration Tips
+環境変数は `.env` または `serverless.yml` の `environment` ブロックで管理し、API キーを `public/` に入れないでください。Stage ごとに `serverless deploy --stage <env>` を使い分け、公開ドメイン変更時は `nuxt.config.ts` の `app.baseURL` を同期させます。依存更新時は `npm run lint` と最低 1 回の本番ビルドを行い、CI が無い場合でもローカルでの確認結果を PR に添えてください。
