@@ -20,19 +20,16 @@ jobs:
           template: template.yml
           no-fail-on-empty-changeset: "1"
           parameter-overrides: >-
-            SSRFunctionDomainName=${{ secrets.SSRFunctionDomainName }},
             AcmId=${{ secrets.AcmId }}
       - name: Setup Node
         uses: actions/setup-node@v4
         with:
           node-version: '22'
-      - run: npm install
-      - name: Install React dependencies
+      - name: Install dependencies
         run: npm install --prefix react-app
-      - run: npm run build
       - name: Build React static site
         run: npm run build --prefix react-app
-      - name: Serverless Deploy
-        run: npx serverless deploy
       - name: Sync S3
         run: aws s3 sync react-app/out/ s3://msgolf-hp-static/ --delete
+      - name: CloudFront Invalidation
+        run: aws cloudfront create-invalidation --distribution-id ${{ secrets.CLOUDFRONT_DISTRIBUTION_ID }} --paths "/*"

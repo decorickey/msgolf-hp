@@ -11,8 +11,6 @@ Parameters:
   CloudFrontOACName:
     Type: String
     Default: msgolf-hp-oac
-  SSRFunctionDomainName:
-    Type: String
   AcmId:
     Type: String
 
@@ -62,10 +60,6 @@ Resources:
         Aliases:
           - !Ref DomainName
         CacheBehaviors:
-          - PathPattern: "/ssr/*"
-            TargetOriginId: ssr-function
-            ViewerProtocolPolicy: redirect-to-https
-            CachePolicyId: 4135ea2d-6df8-44a3-9df3-4b5a84be39ad
           - PathPattern: "/*.*"
             TargetOriginId: s3-bucket
             ViewerProtocolPolicy: redirect-to-https
@@ -81,10 +75,6 @@ Resources:
             OriginAccessControlId: !GetAtt CloudFrontOAC.Id
             S3OriginConfig: 
               OriginAccessIdentity: ''
-          - DomainName: !Ref SSRFunctionDomainName
-            Id: ssr-function 
-            CustomOriginConfig:
-              OriginProtocolPolicy: https-only
         HttpVersion: http2
         PriceClass: PriceClass_200
         ViewerCertificate:

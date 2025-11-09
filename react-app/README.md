@@ -1,12 +1,10 @@
-MSゴルフHPの React / Next.js 版。Nuxt + Quasar 版のセクション構成とコンテンツを Next.js 15 (App Router) + Tailwind CSS で再現しています。
+MSゴルフHPの React / Next.js 版。Next.js 15 (App Router) + Tailwind CSS で構築し、S3 + CloudFront から静的配信します。
 
 ## 開発手順
 
 ```bash
-npm install         # ルートで Nuxt 依存を導入済みであること
-npm run dev         # （React 単体で動かす場合は react-app 直下で実行）
-# またはリポジトリ直下から
-npm run dev:react
+npm install
+npm run dev
 ```
 
 - 開発サーバー: http://localhost:3000
@@ -20,4 +18,4 @@ npm run dev:react
 npm run build
 ```
 
-ビルド成果物は `.next/` に生成されます。インフラ移行時に ECS/App Runner/S3+CloudFront へデプロイする際のベースとなります。
+ビルド成果物は `.next/` と `out/` に生成されます（`next.config.ts` で `output: "export"` を指定）。`out/` を S3 バケットへ同期し、CloudFront から配信してください。

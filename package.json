@@ -1,31 +1,12 @@
 {
-  "name": "nuxt-app",
+  "name": "msgolf-hp",
   "private": true,
   "scripts": {
-    "build": "nuxt build",
-    "dev": "nuxt dev",
-    "dev:nuxt": "nuxt dev",
-    "dev:react": "npm run dev --prefix react-app",
-    "build:react": "npm run build --prefix react-app",
-    "build:react:export": "cd react-app && npm run build",
-    "lint:react": "npm run lint --prefix react-app",
-    "generate": "nuxt generate",
-    "preview": "nuxt preview",
-    "postinstall": "nuxt prepare",
-    "lint": "eslint ."
+    "dev": "npm run dev --prefix react-app",
+    "build": "npm run build --prefix react-app",
+    "lint": "npm run lint --prefix react-app"
   },
   "volta": {
     "node": "22.12.0"
-  },
-  "dependencies": {
-    "@nuxt/eslint-config": "^1.9.0",
-    "@quasar/extras": "^1.17.0",
-    "@types/node": "^24.3.1",
-    "eslint": "^9.35.0",
-    "nuxt": "^4.1.1",
-    "nuxt-quasar-ui": "^2.1.13",
-    "quasar": "^2.18.2",
-    "sass": "^1.92.1",
-    "serverless": "^3.38.0"
   }
 }
