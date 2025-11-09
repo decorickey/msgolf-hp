@@ -18,6 +18,7 @@
 - オリジン1: 既存 S3 バケット
 - オリジン2: 既存 SSR Lambda (Serverless)
 - CloudFormation の `template.yml` で Default Cache Behavior を S3 へ切り替えるか、Behaviors の優先度を調整して React オリジンを優先する。
+- `DefaultRootObject: index.html` を設定しておくと、ルートアクセスでも S3 の `index.html` が返る（未設定だと AccessDenied になるので注意）。
 - Invalidations: React リリース毎に `/*` を実行（`scripts/deploy-react-static.sh` 参照）。
 
 ### 動作確認

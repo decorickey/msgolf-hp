@@ -58,6 +58,7 @@ Resources:
     Type: AWS::CloudFront::Distribution
     Properties: 
       DistributionConfig:
+        DefaultRootObject: index.html
         Aliases:
           - !Ref DomainName
         CacheBehaviors:
