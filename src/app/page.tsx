@@ -9,36 +9,30 @@ import { AccessInfoSection } from "@/components/sections/access-info-section";
 
 export default function Home() {
   return (
-    <div className="bg-stone-50">
-      <main className="mx-auto flex min-h-screen max-w-5xl flex-col gap-16 px-4 pb-16 pt-8 md:px-8">
-        <TopCarouselSection />
-        <section
-          id="about"
-          className="space-y-16 rounded-2xl bg-white p-6 shadow-sm md:p-10"
-        >
+    <div className="relative isolate min-h-screen bg-gradient-to-b from-stone-100 via-white to-stone-100">
+      <div className="pointer-events-none absolute inset-x-0 top-0 -z-10 flex justify-center opacity-60">
+        <div className="h-[420px] w-[640px] bg-emerald-100/60 blur-[120px]" />
+      </div>
+      <main className="relative mx-auto flex min-h-screen max-w-6xl flex-col gap-16 px-4 pb-24 pt-10 md:gap-20 md:px-10">
+        <div className="glass-panel p-2">
+          <TopCarouselSection />
+        </div>
+
+        <section id="about" className="glass-panel space-y-16 p-6 md:p-12">
           <TopAboutSection />
           <TopInfoSection />
         </section>
 
-        <section
-          id="menu"
-          className="space-y-16 rounded-2xl bg-white p-6 shadow-sm md:p-10"
-        >
+        <section id="menu" className="glass-panel space-y-16 p-6 md:p-12">
           <WorkshopMenuSection />
           <MakersAndClubsSection />
         </section>
 
-        <section
-          id="info"
-          className="space-y-16 rounded-2xl bg-white p-6 shadow-sm md:p-10"
-        >
+        <section id="info" className="glass-panel space-y-12 p-6 md:p-12">
           <BusinessInfoSection />
         </section>
 
-        <section
-          id="access"
-          className="space-y-16 rounded-2xl bg-white p-6 shadow-sm md:p-10"
-        >
+        <section id="access" className="glass-panel space-y-12 p-6 md:p-12">
           <AccessInfoSection />
         </section>
       </main>

@@ -1,25 +1,11 @@
-'use client';
-
 import { informationList } from "@/data/site";
-import { useEffect } from "react";
 import { SectionTitle } from "./section-title";
+import { TwitterTimeline } from "./twitter-timeline";
 
 export function TopInfoSection() {
-  useEffect(() => {
-    const id = "twitter-wjs";
-    if (document.getElementById(id)) {
-      return;
-    }
-    const script = document.createElement("script");
-    script.id = id;
-    script.src = "https://platform.twitter.com/widgets.js";
-    script.async = true;
-    document.body.appendChild(script);
-  }, []);
-
   return (
     <section className="space-y-6">
-      <SectionTitle>おしらせ</SectionTitle>
+      <SectionTitle eyebrow="News">おしらせ</SectionTitle>
       <div className="grid gap-6 md:grid-cols-2">
         <div className="rounded-lg border border-stone-200 bg-white p-4">
           <div className="space-y-4 rounded-md border border-stone-100 p-4">
@@ -39,17 +25,7 @@ export function TopInfoSection() {
         </div>
 
         <div className="rounded-lg border border-stone-200 bg-white p-4">
-          <div className="h-[400px] overflow-y-auto rounded-md border border-stone-100 p-2">
-            <a
-              className="twitter-timeline"
-              data-lang="ja"
-              data-width="100%"
-              data-height="360"
-              href="https://twitter.com/ms_golf?ref_src=twsrc%5Etfw"
-            >
-              Tweets by ms_golf
-            </a>
-          </div>
+          <TwitterTimeline />
         </div>
       </div>
     </section>

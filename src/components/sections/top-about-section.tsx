@@ -10,7 +10,7 @@ const paragraphs = [
 export function TopAboutSection() {
   return (
     <section className="space-y-6">
-      <SectionTitle>MSゴルフについて</SectionTitle>
+      <SectionTitle eyebrow="About">MSゴルフについて</SectionTitle>
       <div className="space-y-4 text-lg leading-relaxed text-stone-700">
         {paragraphs.map((text, index) => (
           <p key={index}>{text}</p>

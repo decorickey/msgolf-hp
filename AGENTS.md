@@ -1,23 +1,32 @@
 # Repository Guidelines
 
 ## Project Structure & Module Organization
-Nuxt 4 + Quasar UI を採用しています。`pages/` はルーティング定義、`components/` は再利用可能な UI、`app.vue` と `nuxt.config.ts` がグローバル設定です。静的アセットは `public/`、サーバレス関連は `serverless.yml` と `template.yml`、型設定は `tsconfig.json` にあります。デザインガイドや共有ロジックはファイル先頭コメントで簡潔に説明し、同ディレクトリ内の README を更新してください。
+- Next.js 15(App Router) + Tailwind CSS 構成です。`src/` にアプリ本体、`public/` に静的アセット、`next.config.ts` と `tsconfig.json` がルートにあります。
+- 共有ロジックやセクションは `src/components/` と `src/data/` に配置しています。新規追加時はファイル冒頭に簡潔なコメントを入れ、同ディレクトリの README やドキュメントを更新してください。
+- インフラ関連は `template.yml`（CloudFront + S3）と `docs/infra/README.md`、手動デプロイスクリプトは `scripts/` にあります。
 
 ## Build, Test, and Development Commands
-- `npm install`：Volta が固定した Node 22.12.0 で依存を導入します。
-- `npm run dev`：ホットリロード付きで `http://localhost:3000` を起動します。
-- `npm run build`：サーバレス配備向けに本番ビルドを生成します。
-- `npm run generate`：静的ホスティング用の `dist/` を作ります。
-- `npm run lint`：`eslint .` で SFC/TS/Serverless 設定を検証します。テストスクリプトは未定義ですが、追加時は `npm run test` → `vitest run` を想定してください。
+- `npm install`：Volta で固定した Node 22.12.0 を利用して依存を導入します。
+- `npm run dev`：http://localhost:3000 で開発サーバーを起動します。
+- `npm run lint`：ESLint を実行します。基本的に lint を最低ラインの品質ゲートとしてください。
+- `npm run build`：`out/` に静的エクスポートを生成します。S3/CloudFront への配信はこの成果物を同期します。
+- デプロイは GitHub Actions `Release` か `scripts/deploy-react-static.sh` を利用し、`msgolf-hp-static` バケットへ同期後 CloudFront を無効化します。
 
 ## Coding Style & Naming Conventions
-公式 ESLint 設定（@nuxt/eslint-config）をベースに 2 スペースインデント、セミコロン無し、single quote を推奨します。Vue コンポーネントは PascalCase、Composable は `useXxx`、ローカル変数・関数は camelCase。SFC 内部では `<script setup lang="ts">` を標準化し、CSS は BEM か `component__element--modifier` の派生を使って衝突を避けます。型定義や API レスポンスは `types/` を作成し再利用します。
+- Next.js 公式 ESLint 設定（`eslint-config-next`）をベースにし、TypeScript/React の一般的なスタイルガイドに従います。
+- コンポーネントは PascalCase、hooks やユーティリティは `useXxx` / `xxxUtils` 命名、CSS は Tailwind を基本とし必要に応じてモジュール CSS を使用します。
+- `src/data/` では `as const` で静的データを定義し、型安全性を保ちます。
 
-## Testing Guidelines
-現状は Lint を最低ラインとし、UI ロジックは Vitest + Vue Test Utils、E2E は Playwright を推奨します。コンポーネントテストはテーブル駆動の `describe.each` / `test.each` で入力差分を列挙し、Kent Beck と t_wada の TDD サイクル（レッド→グリーン→リファクタ）を厳守します。`npx vitest run --coverage` を CI とローカルで同じオプションに揃えてください。
+## Testing / Quality
+- 現在は Lint を最低ラインとしており、自動テストは任意です。必要に応じて React Testing Library + Vitest/Jest を導入してください。
+- 重要機能にテーブル駆動（`describe.each`, `test.each`）を採用し、Kent Beck / t_wada の Red-Green-Refactor を意識することを推奨します。
 
 ## Commit & Pull Request Guidelines
-Git 履歴は短い英語インペラティブ（例: `fix`, `update`）で統一されています。コミット単位は「1 目的 1 変更」に分割し、必要なら `Co-authored-by` を追記してください。PR では目的、主要な UI 変更スクリーンショット、テストコマンドの実行結果、関連 Issue をテンプレート的に箇条書きで記載し、レビュー前に ESLint と（存在する場合）テストを必ず通します。
+- Git 履歴は短い英語インペラティブ（例: `add`, `fix`, `refactor`）で統一してください。
+- PR では目的、UI 差分（必要ならスクリーンショット）、実行したコマンド（lint/build 等）、関連 Issue を箇条書きでまとめます。
+- レビュー前に `npm run lint` と `npm run build` を通し、問題ないことを確認してください。
 
 ## Security & Configuration Tips
-環境変数は `.env` または `serverless.yml` の `environment` ブロックで管理し、API キーを `public/` に入れないでください。Stage ごとに `serverless deploy --stage <env>` を使い分け、公開ドメイン変更時は `nuxt.config.ts` の `app.baseURL` を同期させます。依存更新時は `npm run lint` と最低 1 回の本番ビルドを行い、CI が無い場合でもローカルでの確認結果を PR に添えてください。
+- 環境変数は `.env` で管理し、機密情報を `public/` に置かないでください。
+- CloudFront/Route53 等の本番設定は `template.yml` で管理し、変更時は GitHub Actions から CloudFormation を更新します。
+- 依存更新後は少なくとも `npm run lint` と `npm run build` を実行し、S3/CloudFront デプロイ前に `./scripts/deploy-react-static.sh` の動作確認を行ってください。
