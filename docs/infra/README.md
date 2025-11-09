@@ -3,9 +3,9 @@
 Next.js 15 を静的ビルドし、既存の S3 バケット `msgolf-hp-static` と CloudFront ディストリビューションで配信する構成です。
 
 ## ビルド
-1. `npm install --prefix react-app`
-2. `npm run build` （= `npm run build --prefix react-app`）
-3. 生成物は `react-app/out` に出力されます。
+1. `npm install`
+2. `npm run build`
+3. 生成物は `out/` に出力されます。
 
 ## デプロイ
 - ローカルから反映する場合:  
@@ -14,7 +14,7 @@ Next.js 15 を静的ビルドし、既存の S3 バケット `msgolf-hp-static` 
   export CLOUDFRONT_DISTRIBUTION_ID=E******   # 既存分配ID
   ./scripts/deploy-react-static.sh
   ```
-- CI（GitHub Actions `Release`）では `react-app` のビルド後に同じ S3 バケットへ同期し、CloudFront 無効化を実行します。
+- CI（GitHub Actions `Release`）では Next.js のビルド後に同じ S3 バケットへ同期し、CloudFront 無効化を実行します。
 
 ## CloudFormation (`template.yml`)
 - 管理対象: S3 バケット、OAC、CloudFront ディストリビューション。

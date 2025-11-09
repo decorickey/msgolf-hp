@@ -14,12 +14,12 @@ fi
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 REPO_ROOT="$(cd "${SCRIPT_DIR}/.." && pwd)"
 
-pushd "${REPO_ROOT}/react-app" >/dev/null
+pushd "${REPO_ROOT}" >/dev/null
 npm install
 npm run build
 popd >/dev/null
 
-aws s3 sync "${REPO_ROOT}/react-app/out/" "s3://${REACT_S3_BUCKET}/" --delete
+aws s3 sync "${REPO_ROOT}/out/" "s3://${REACT_S3_BUCKET}/" --delete
 
 aws cloudfront create-invalidation \
   --distribution-id "${CLOUDFRONT_DISTRIBUTION_ID}" \

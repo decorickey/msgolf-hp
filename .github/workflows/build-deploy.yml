@@ -26,10 +26,10 @@ jobs:
         with:
           node-version: '22'
       - name: Install dependencies
-        run: npm install --prefix react-app
+        run: npm install
       - name: Build React static site
-        run: npm run build --prefix react-app
+        run: npm run build
       - name: Sync S3
-        run: aws s3 sync react-app/out/ s3://msgolf-hp-static/ --delete
+        run: aws s3 sync out/ s3://msgolf-hp-static/ --delete
       - name: CloudFront Invalidation
         run: aws cloudfront create-invalidation --distribution-id ${{ secrets.CLOUDFRONT_DISTRIBUTION_ID }} --paths "/*"
