@@ -21,10 +21,8 @@ jobs:
           no-fail-on-empty-changeset: "1"
           parameter-overrides: >-
             AcmId=${{ secrets.AcmId }}
-      - name: Setup Node
-        uses: actions/setup-node@v4
-        with:
-          node-version: '22'
+      - name: Setup mise
+        uses: jdx/mise-action@v3
       - name: Install dependencies
         run: npm install
       - name: Build React static site

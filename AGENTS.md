@@ -1,12 +1,14 @@
 # Repository Guidelines
 
 ## Project Structure & Module Organization
-- Next.js 15(App Router) + Tailwind CSS 構成です。`src/` にアプリ本体、`public/` に静的アセット、`next.config.ts` と `tsconfig.json` がルートにあります。
+- Next.js 16(App Router) + Tailwind CSS 構成です。`src/` にアプリ本体、`public/` に静的アセット、`next.config.ts` と `tsconfig.json` がルートにあります。
 - 共有ロジックやセクションは `src/components/` と `src/data/` に配置しています。新規追加時はファイル冒頭に簡潔なコメントを入れ、同ディレクトリの README やドキュメントを更新してください。
 - インフラ関連は `template.yml`（CloudFront + S3）と `docs/infra/README.md`、手動デプロイスクリプトは `scripts/` にあります。
 
 ## Build, Test, and Development Commands
-- `npm install`：Volta で固定した Node 22.12.0 を利用して依存を導入します。
+- `mise trust`：初回だけ `mise.toml` を信頼済み設定にします。
+- `mise install`：`mise.toml` に定義した Node.js を導入します。
+- `npm install`：`mise` で固定した Node.js を利用して依存を導入します。
 - `npm run dev`：http://localhost:3000 で開発サーバーを起動します。
 - `npm run lint`：ESLint を実行します。基本的に lint を最低ラインの品質ゲートとしてください。
 - `npm run build`：`out/` に静的エクスポートを生成します。S3/CloudFront への配信はこの成果物を同期します。

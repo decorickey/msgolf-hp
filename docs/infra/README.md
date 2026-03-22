@@ -1,11 +1,13 @@
 # React + S3/CloudFront 運用メモ
 
-Next.js 15 を静的ビルドし、既存の S3 バケット `msgolf-hp-static` と CloudFront ディストリビューションで配信する構成です。
+Next.js 16 を静的ビルドし、既存の S3 バケット `msgolf-hp-static` と CloudFront ディストリビューションで配信する構成です。
 
 ## ビルド
-1. `npm install`
-2. `npm run build`
-3. 生成物は `out/` に出力されます。
+1. `mise trust`
+2. `mise install`
+3. `npm install`
+4. `npm run build`
+5. 生成物は `out/` に出力されます。
 
 ## デプロイ
 - ローカルから反映する場合:  

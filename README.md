@@ -1,12 +1,16 @@
 # MS Golf HP
 
-Next.js 15 (App Router + Tailwind) で構築した React 製サイトです。静的ビルドを S3 + CloudFront に配置して配信します。
+Next.js 16 (App Router + Tailwind) で構築した React 製サイトです。静的ビルドを S3 + CloudFront に配置して配信します。
 
 ## セットアップ
 
 ```bash
+mise trust
+mise install
 npm install
 ```
+
+`mise` で `mise.toml` を trust し、定義した Node.js を導入してから依存関係をインストールします。
 
 ## ローカル開発
 
