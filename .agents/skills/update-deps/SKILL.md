@@ -21,6 +21,7 @@ description: >-
 ## repo 固有前提
 
 - Node.js は `mise.toml` で管理する。更新候補は LTS 系を優先する。
+- 検証コマンドは `mise.toml` に合わせた Node.js 上で実行する。
 - 依存管理は `package.json` と `package-lock.json` を正とする。
 - 品質ゲートは `npm run lint` と `npm run build`。
 - ビルド副作用で `next-env.d.ts` が変わることがあるため、更新対象かどうかを切り分ける。
@@ -29,7 +30,7 @@ description: >-
 ## 標準フロー
 
 1. `AGENTS.md`、`mise.toml`、`package.json`、`package-lock.json` を読む。
-2. `node -v`、`npm -v`、`npm outdated --depth=0`、必要に応じて `npm view <pkg> version` で現状差分を把握する。
+2. `mise exec` で `mise.toml` に合わせた Node.js を使い、`node -v`、`npm -v`、`npm outdated --depth=0`、必要に応じて `npm view <pkg> version` で現状差分を把握する。
 3. Node.js は LTS 系の最新パッチを候補にし、`mise.toml` を更新する。
 4. 直接依存の更新候補を決めて `package.json` を更新し、`npm install` で `package-lock.json` を再解決する。
 5. peer warning が出た依存はそのまま採用せず、`npm run lint` と `npm run build` の結果で採否を判断する。
@@ -38,16 +39,13 @@ description: >-
 
 ## 互換性判断ルール
 
-- `next`、`react`、`react-dom`、Tailwind 系は `npm view` で最新を確認してから更新する。
-- `eslint-config-next` と `eslint` / `typescript` は peer dependency だけで採用しない。必ず実行結果を優先する。
+- フレームワーク本体や lint / build に強く関わる依存は、`npm view` や公式 peer dependency を確認してから更新する。
+- 特定ライブラリの採否を固定ルールにせず、必ず一次情報と実行結果を優先する。
 - メジャー更新で `lint` または `build` が失敗したら、その依存は元に戻し、見送り理由を明示する。
 - 警告が出ても `lint` / `build` が通る依存は採用候補にできる。
 
-## この repo で確定している注意点
+## この repo で確認済みの注意点
 
-- `eslint@10` は `eslint-config-next@16.2.1` 配下の `eslint-plugin-react` 系と実運用上の互換問題がある。
-- 同条件では `eslint` は 9 系維持を優先する。
-- `typescript@6` や `@types/node@25` は警告が出ても、`npm run lint` と `npm run build` が通るなら採用候補にできる。
 - `next-env.d.ts` の差分は build の副作用で発生しうるため、意図した更新でない限り戻す。
 
 ## 報告フォーマット
