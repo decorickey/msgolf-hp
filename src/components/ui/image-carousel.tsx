@@ -12,12 +12,16 @@ interface ImageCarouselProps {
   images: ReadonlyArray<CarouselImage>;
   aspectRatio?: number;
   intervalMs?: number;
+  imageClassName?: string;
+  containerClassName?: string;
 }
 
 export function ImageCarousel({
   images,
   aspectRatio = 16 / 9,
   intervalMs = 5000,
+  imageClassName = "object-cover",
+  containerClassName,
 }: ImageCarouselProps) {
   const [index, setIndex] = useState(0);
   const [isPaused, setIsPaused] = useState(false);
@@ -43,7 +47,7 @@ export function ImageCarousel({
 
   return (
     <div
-      className="relative w-full overflow-hidden rounded-lg"
+      className={`relative w-full overflow-hidden rounded-lg ${containerClassName ?? ""}`}
       style={{ aspectRatio }}
       onMouseEnter={() => setIsPaused(true)}
       onMouseLeave={() => setIsPaused(false)}
@@ -58,7 +62,7 @@ export function ImageCarousel({
             fill
             src={image.src}
             alt={image.alt}
-            className="object-cover"
+            className={imageClassName}
             sizes="(max-width: 768px) 100vw, 1024px"
             priority={i === 0}
           />

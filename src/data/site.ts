@@ -41,7 +41,20 @@ export const makers = [
       },
     ],
   },
-  { name: "baldo", logo: "/brands/baldo/logo.png" },
+  {
+    name: "baldo",
+    logo: "/brands/baldo/logo.png",
+    clubs: [
+      { images: ["/brands/baldo/club-1-1.jpg"] },
+      {
+        images: [
+          "/brands/baldo/club-2-1.jpg",
+          "/brands/baldo/club-2-2.jpg",
+          "/brands/baldo/club-2-3.jpg",
+        ],
+      },
+    ],
+  },
   { name: "buddy", logo: "/brands/buddy/logo.png" },
   {
     name: "epon",

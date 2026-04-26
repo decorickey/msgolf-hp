@@ -46,6 +46,8 @@ export function MakersAndClubsSection() {
                     )}
                     aspectRatio={1}
                     intervalMs={3500}
+                    imageClassName="object-contain"
+                    containerClassName="bg-stone-100"
                   />
                 ))}
               </div>
