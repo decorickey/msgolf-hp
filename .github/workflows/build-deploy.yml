@@ -1,8 +1,6 @@
 name: Release
 on: 
   workflow_dispatch:
-env:
-  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: "true"
 jobs:
   Release:
     runs-on: ubuntu-latest
@@ -10,21 +8,20 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v6
       - name: Configure AWS credentials
-        uses: aws-actions/configure-aws-credentials@v5
+        uses: aws-actions/configure-aws-credentials@v6.1.0
         with:
           aws-region: ap-northeast-1
           aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
       - name: Cloudformation Deploy
-        uses: aws-actions/aws-cloudformation-github-deploy@v1.3.0
-        with:
-          name: msgolf-hp-resources
-          template: template.yml
-          no-fail-on-empty-changeset: "1"
-          parameter-overrides: >-
-            AcmId=${{ secrets.AcmId }}
+        run: >-
+          aws cloudformation deploy
+          --stack-name msgolf-hp-resources
+          --template-file template.yml
+          --no-fail-on-empty-changeset
+          --parameter-overrides AcmId=${{ secrets.AcmId }}
       - name: Setup mise
-        uses: jdx/mise-action@v3.4.1
+        uses: jdx/mise-action@v4
       - name: Install dependencies
         run: npm install
       - name: Build React static site
