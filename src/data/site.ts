@@ -45,7 +45,6 @@ export const makers = [
     name: "baldo",
     logo: "/brands/baldo/logo.png",
     clubs: [
-      { images: ["/brands/baldo/club-1-1.jpg"] },
       {
         images: [
           "/brands/baldo/club-2-1.jpg",
