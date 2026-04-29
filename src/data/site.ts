@@ -119,7 +119,11 @@ export const makers = [
       },
     ],
   },
-  { name: "miura", logo: "/brands/miura/logo.png" },
+  {
+    name: "miura",
+    logo: "/brands/miura/logo.png",
+    clubs: [{ images: ["/brands/miura/club-1-1.JPG"] }],
+  },
   { name: "mystery", logo: "/brands/mystery/logo.png" },
   { name: "razzle", logo: "/brands/razzle/logo.png" },
   {
