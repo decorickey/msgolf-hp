@@ -52,6 +52,7 @@ export const makers = [
           "/brands/baldo/club-2-3.jpg",
         ],
       },
+      { images: ["/brands/baldo/club-3-1.JPG"] },
     ],
   },
   { name: "buddy", logo: "/brands/buddy/logo.png" },
