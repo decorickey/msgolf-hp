@@ -60,6 +60,12 @@ export const makers = [
     name: "epon",
     logo: "/brands/epon/logo.svg",
     clubs: [
+      {
+        images: [
+          "/brands/epon/club-5-1.jpg",
+          "/brands/epon/club-5-2.jpg",
+        ],
+      },
       { images: ["/brands/epon/club-1-1.jpeg"] },
       {
         images: [
